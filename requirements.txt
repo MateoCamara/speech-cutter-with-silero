@@ -1,0 +1,19 @@
+# Runtime dependencies for speech-cutter-with-silero.
+#
+# These are loose lower bounds. For exact reproducibility, pin the versions from
+# your working machine, e.g.:
+#   pip freeze | grep -i -E "torch|silero-vad|librosa|soundfile|numpy|tqdm"
+#
+# Silero VAD model weights ship inside the `silero-vad` pip package, so no
+# torch.hub download is needed. Decoding compressed inputs (e.g. some .mp3 files)
+# may additionally require ffmpeg on your PATH (used by librosa's audioread backend).
+
+torch>=1.12          # tensor backend; Silero VAD runs on it
+silero-vad>=5.0      # VAD model + get_speech_timestamps / load_silero_vad
+librosa>=0.10        # decode -> mono -> resample in one call
+soundfile>=0.12      # write the per-utterance WAV fragments
+numpy>=1.21          # array maths and the synthetic --demo audio
+tqdm>=4.50           # per-file progress bar
+
+# Optional: only needed when running with --wandb (experiment tracking).
+# wandb>=0.15

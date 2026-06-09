@@ -1,0 +1,35 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Model checkpoints
+*.pt
+*.pth
+*.onnx
+
+# Data and audio artifacts
+data/
+demo_data/
+cut_speech_data/
+cut_speech_results/
+*.wav
+*.npy
+*.npz
+
+# Experiment logs
+runs/
+wandb/
+
+# IDE / editor
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
